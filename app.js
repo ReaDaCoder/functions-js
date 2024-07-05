@@ -273,7 +273,7 @@ console.log(getTotalPhones(developers));
     const phoneCounts = developers
         .flatMap(dev => dev.phones) 
         .reduce((counts, phone) => {
-            counts[phone] = (counts[phone] || 0) + 1; // Count occurrences
+            counts[phone] = (counts[phone] || 0) + 1;
             return counts;
         }, {});
     
