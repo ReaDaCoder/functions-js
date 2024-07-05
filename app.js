@@ -81,7 +81,9 @@ let countElements = numbers.length;
 console.log( countElements);
 
 //1.k
-let reversedNum = numbers.slice().reverse();
+function reversedNum(){
+    numbers.slice().reverse();
+}
 console.log( reversedNum);
 
 //2.a
@@ -257,12 +259,37 @@ const developers = [
   console.log(numPhones);
 
   //3.c
-  /*let compSet = developers.map(computerSetups);*/
+  function getTotalPhones(developers) {
+    return developers.reduce((total, dev) => total + dev.phones.length, 0);
+}
+
+console.log(getTotalPhones(developers));
 
 
   //3.d
- /* let trustedPhone = developers.phones;
-  console.log(trustedphones);
+  function trustedPhone(developers) {
+    const phoneCounts = developers
+        .flatMap(dev => dev.phones) 
+        .reduce((counts, phone) => {
+            counts[phone] = (counts[phone] || 0) + 1; // Count occurrences
+            return counts;
+        }, {});
+    
+    let trustedBrand = null;
+    let maxCount = 0;
+    
+    for (const [brand, count] of Object.entries(phoneCounts)) {
+        if (count > maxCount) {
+            maxCount = count;
+            trustedBrand = brand;
+        }
+    }
+    
+    return trustedBrand;
+}
+
+console.log(trustedPhone(developers)); 
+
 
   //3.e
 
@@ -286,4 +313,4 @@ const developers = [
     developer.laptops.length > 0
   );
   
-  console.log(mostGadge);*/
+  console.log(mostGadge);
