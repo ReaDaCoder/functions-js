@@ -249,7 +249,9 @@ const developers = [
   ]
 
   //3.a
-  let names = developers.map(developer => developer.name);
+  function names(){
+    developers.map(developer => developer.name);
+  }
   console.log(names);
 
   //3.b
